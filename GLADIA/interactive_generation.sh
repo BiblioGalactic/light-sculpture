@@ -1,7 +1,7 @@
 #!/bin/sh
 # 💡 language: bash
 # ============================================
-# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzel)
 # 🌀 License: CC BY-NC-SA 4.0
 # ============================================
 SCRIPT="$0"

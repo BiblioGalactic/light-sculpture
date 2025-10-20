@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================
-# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzel)
 # 🌀 License: CC BY-NC-SA 4.0
 # ============================================
 # === 🛠️ trim_to_30s.sh === 🎬

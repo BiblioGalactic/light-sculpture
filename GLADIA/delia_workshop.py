@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 # ============================================
-# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzel)
 # 🌀 License: CC BY-NC-SA 4.0
 # ============================================
 DELIA DERBYSHIRE'S BBC RADIOPHONIC WORKSHOP CONSOLE

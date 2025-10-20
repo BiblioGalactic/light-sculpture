@@ -1,6 +1,6 @@
 #!/bin/bash
 # ============================================
-# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzel)
 # 🌀 License: CC BY-NC-SA 4.0
 # ============================================
 # Automatic download from any yt-dlp compatible URL (YouTube, SoundCloud, etc.)
