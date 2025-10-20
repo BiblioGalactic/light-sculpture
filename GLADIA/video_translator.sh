@@ -1,4 +1,8 @@
 #!/bin/bash
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 # Translate video/audio to English subtitles
 # Part of Light Sculpture toolkit
 # === 🔍 Check and install dependencies ===

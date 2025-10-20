@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 set -euo pipefail
 trap cleanup EXIT
 

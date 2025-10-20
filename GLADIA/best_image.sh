@@ -1,4 +1,8 @@
 #!/bin/sh
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 # 💡 lenguaje: bash
 
 SCRIPT="$0"

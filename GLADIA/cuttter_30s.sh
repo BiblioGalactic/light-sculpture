@@ -1,4 +1,8 @@
 #!/bin/bash
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 # === 🛠️ trim_to_30s.sh === 🎬
 set -euo pipefail
 trap cleanup EXIT

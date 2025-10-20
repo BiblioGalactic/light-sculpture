@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
 """
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 DELIA DERBYSHIRE'S BBC RADIOPHONIC WORKSHOP CONSOLE
 Virtual recreation of 1960s electronic music equipment
 Public/portable version

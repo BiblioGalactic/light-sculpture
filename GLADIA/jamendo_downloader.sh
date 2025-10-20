@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 # Download free music from Jamendo API
 # Part of Light Sculpture toolkit
 # === 🔍 Check and install dependencies ===

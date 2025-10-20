@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 # === 🌐 Public Audio-to-Text Script (Whisper) ===
 
 # --- Check dependencies ---

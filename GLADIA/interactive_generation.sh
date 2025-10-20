@@ -1,6 +1,9 @@
 #!/bin/sh
 # 💡 language: bash
-
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 SCRIPT="$0"
 LANGUAGE=$(grep -m1 '^# 💡 language:' "$SCRIPT" | cut -d':' -f2 | tr -d ' ')
 [ -z "$LANGUAGE" ] && LANGUAGE="${SCRIPT##*.}"

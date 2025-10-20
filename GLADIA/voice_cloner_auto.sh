@@ -1,4 +1,8 @@
 #!/bin/bash
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 # 🔊🛠️ Automatic Voice Cloning Pipeline
 # Part of Light Sculpture toolkit
 set -euo pipefail

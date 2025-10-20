@@ -1,5 +1,8 @@
 #!/bin/bash
-
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 # === 🌐 Public Live Audio Equalizer ===
 
 # --- Dependencies check ---

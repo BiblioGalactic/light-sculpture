@@ -1,4 +1,8 @@
 #!/bin/bash
+# ============================================
+# 🧠 Author: Gustavo Silva Da Costa (Eto Demerzerl)
+# 🌀 License: CC BY-NC-SA 4.0
+# ============================================
 # Clone voice using text file and reference audio
 # Part of Light Sculpture toolkit
 # === 🔍 Check and install dependencies ===
