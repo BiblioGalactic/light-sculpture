@@ -1,8 +1,8 @@
-# GALDIA - Light Sculpture Toolkit
+# GLADIA - Light Sculpture Toolkit
 
 ## Overview
 
-GALDIA is a comprehensive collection of command-line tools designed for audiovisual exploration, analysis, and creation. Inspired by the concept of "sculpting light and sound," these tools enable you to generate, transform, and combine audiovisual materials directly from the command line.
+GLADIA is a comprehensive collection of command-line tools designed for audiovisual exploration, analysis, and creation. Inspired by the concept of "sculpting light and sound," these tools enable you to generate, transform, and combine audiovisual materials directly from the command line.
 
 ## Core Philosophy
 
@@ -12,7 +12,7 @@ The system combines automatic processes with manual control, offering creators a
 
 ## Domain & Capabilities
 
-GALDIA specializes in the audiovisual spectrum, offering capabilities across:
+GLADIA specializes in the audiovisual spectrum, offering capabilities across:
 
 - **Video Processing**: Download, trim, split, loop, compress, translate
 - **Audio Engineering**: Layer separation, voice cloning, frequency generation, mastering
@@ -30,4 +30,4 @@ Simply clone the repository and run any script - each will handle its own setup 
 
 ---
 
-*GALDIA: Where individual tools become instruments in a larger audiovisual symphony, enabling creators to sculpt with light and sound in an experimental, boundary-free environment.*
+*GLADIA: Where individual tools become instruments in a larger audiovisual symphony, enabling creators to sculpt with light and sound in an experimental, boundary-free environment.*
