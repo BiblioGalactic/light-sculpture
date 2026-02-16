@@ -28,9 +28,17 @@ check_dependencies() {
         elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
             # Linux
             if command -v apt-get &>/dev/null; then
-                sudo apt-get update && sudo apt-get install -y curl
+                echo "⚠️ curl not found. Install it manually:" >&2
+                echo "  apt-get: sudo apt-get install -y curl" >&2
+                echo "  yum:     sudo yum install -y curl" >&2
+                echo "  pip:     pip3 install --user curl" >&2
+                exit 1
             elif command -v yum &>/dev/null; then
-                sudo yum install -y curl
+                echo "⚠️ curl not found. Install it manually:" >&2
+                echo "  apt-get: sudo apt-get install -y curl" >&2
+                echo "  yum:     sudo yum install -y curl" >&2
+                echo "  pip:     pip3 install --user curl" >&2
+                exit 1
             else
                 echo "✖ ERROR: Please install curl manually"
                 exit 1
@@ -59,9 +67,17 @@ check_dependencies() {
         elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
             # Linux
             if command -v apt-get &>/dev/null; then
-                sudo apt-get update && sudo apt-get install -y jq
+                echo "⚠️ jq not found. Install it manually:" >&2
+                echo "  apt-get: sudo apt-get install -y jq" >&2
+                echo "  yum:     sudo yum install -y jq" >&2
+                echo "  pip:     pip3 install --user jq" >&2
+                exit 1
             elif command -v yum &>/dev/null; then
-                sudo yum install -y jq
+                echo "⚠️ jq not found. Install it manually:" >&2
+                echo "  apt-get: sudo apt-get install -y jq" >&2
+                echo "  yum:     sudo yum install -y jq" >&2
+                echo "  pip:     pip3 install --user jq" >&2
+                exit 1
             else
                 echo "✖ ERROR: Please install jq manually: https://jqlang.github.io/jq/"
                 exit 1

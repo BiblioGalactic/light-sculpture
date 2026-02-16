@@ -29,9 +29,17 @@ check_dependencies() {
         elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
             # Linux
             if command -v apt-get &>/dev/null; then
-                sudo apt-get update && sudo apt-get install -y yt-dlp
+                echo "⚠️ yt-dlp not found. Install it manually:" >&2
+                echo "  apt-get: sudo apt-get install -y yt-dlp" >&2
+                echo "  yum:     sudo yum install -y yt-dlp" >&2
+                echo "  pip:     pip3 install --user yt-dlp" >&2
+                exit 1
             elif command -v yum &>/dev/null; then
-                sudo yum install -y yt-dlp
+                echo "⚠️ yt-dlp not found. Install it manually:" >&2
+                echo "  apt-get: sudo apt-get install -y yt-dlp" >&2
+                echo "  yum:     sudo yum install -y yt-dlp" >&2
+                echo "  pip:     pip3 install --user yt-dlp" >&2
+                exit 1
             elif command -v pip3 &>/dev/null; then
                 pip3 install --user yt-dlp
             else
@@ -71,9 +79,13 @@ check_dependencies() {
         elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
             # Linux
             if command -v apt-get &>/dev/null; then
-                sudo apt-get update && sudo apt-get install -y ffmpeg
+                echo "⚠️ ffmpeg not found. Install it:" >&2
+                echo "  sudo apt-get install -y ffmpeg" >&2
+                exit 1
             elif command -v yum &>/dev/null; then
-                sudo yum install -y ffmpeg
+                echo "⚠️ ffmpeg not found. Install it:" >&2
+                echo "  sudo yum install -y ffmpeg" >&2
+                exit 1
             else
                 echo "✖ ERROR: Please install ffmpeg manually"
                 exit 1

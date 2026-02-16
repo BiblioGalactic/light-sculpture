@@ -49,12 +49,37 @@ VENV="$HOME/light-sculpture/sdxl_test/venv/bin/activate"
 
 mkdir -p "$MODEL_DIR" "$OUTPUT_DIR"
 
-# Download model if missing
+# Download model if missing (with SHA256 verification)
+MODEL_URL="https://example.com/models/$MODEL_FILE"  # <--- poner URL real
+MODEL_SHA256="REPLACE_WITH_ACTUAL_SHA256_HASH"       # <--- poner hash real
+
+verify_sha256() {
+  local file="$1" expected="$2"
+  local actual
+  if command -v sha256sum >/dev/null 2>&1; then
+    actual=$(sha256sum "$file" | awk '{print $1}')
+  elif command -v shasum >/dev/null 2>&1; then
+    actual=$(shasum -a 256 "$file" | awk '{print $1}')
+  else
+    echo "⚠️ No SHA256 tool found, skipping verification" >&2
+    return 0
+  fi
+  if [ "$actual" != "$expected" ]; then
+    echo "❌ SHA256 mismatch for $file" >&2
+    echo "   Expected: $expected" >&2
+    echo "   Got:      $actual" >&2
+    rm -f "$file"
+    return 1
+  fi
+  echo "✅ SHA256 verified: $file"
+  return 0
+}
+
 if [ ! -f "$MODEL_PATH" ]; then
   echo "⚡ Model not found. Downloading $MODEL_FILE..."
-  MODEL_URL="https://example.com/models/$MODEL_FILE"  # <--- poner URL real
   curl -L -o "$MODEL_PATH" "$MODEL_URL" || { echo "❌ Failed to download model."; exit 1; }
-  echo "✅ Model downloaded to $MODEL_PATH"
+  verify_sha256 "$MODEL_PATH" "$MODEL_SHA256" || { echo "❌ Model integrity check failed."; exit 1; }
+  echo "✅ Model downloaded and verified: $MODEL_PATH"
 fi
 
 # Check generator

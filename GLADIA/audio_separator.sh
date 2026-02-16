@@ -22,9 +22,17 @@ check_dependencies() {
             fi
         elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
             if command -v apt-get &>/dev/null; then
-                sudo apt-get update && sudo apt-get install -y python3 python3-pip python3-venv
+                echo "⚠️ python3 not found. Install it manually:" >&2
+                echo "  apt-get: sudo apt-get install -y python3" >&2
+                echo "  yum:     sudo yum install -y python3" >&2
+                echo "  pip:     pip3 install --user python3" >&2
+                exit 1
             elif command -v yum &>/dev/null; then
-                sudo yum install -y python3 python3-pip
+                echo "⚠️ python3 not found. Install it manually:" >&2
+                echo "  apt-get: sudo apt-get install -y python3" >&2
+                echo "  yum:     sudo yum install -y python3" >&2
+                echo "  pip:     pip3 install --user python3" >&2
+                exit 1
             else
                 echo "✖ ERROR: Please install python3 manually"
                 exit 1
@@ -45,9 +53,13 @@ check_dependencies() {
             fi
         elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
             if command -v apt-get &>/dev/null; then
-                sudo apt-get update && sudo apt-get install -y ffmpeg
+                echo "⚠️ ffmpeg not found. Install it:" >&2
+                echo "  sudo apt-get install -y ffmpeg" >&2
+                exit 1
             elif command -v yum &>/dev/null; then
-                sudo yum install -y ffmpeg
+                echo "⚠️ ffmpeg not found. Install it:" >&2
+                echo "  sudo yum install -y ffmpeg" >&2
+                exit 1
             else
                 echo "✖ ERROR: Please install ffmpeg manually"
                 exit 1

@@ -16,7 +16,9 @@ command -v ffprobe >/dev/null 2>&1 || {
     if [[ "$OSTYPE" == "darwin"* ]]; then
         brew install ffmpeg
     else
-        sudo apt update && sudo apt install -y ffmpeg
+        echo "⚠️ ffmpeg not found. Install it:" >&2
+        echo "  sudo apt-get install -y ffmpeg" >&2
+        exit 1
     fi
 }
 

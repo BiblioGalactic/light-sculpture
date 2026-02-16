@@ -47,12 +47,37 @@ VENV="$HOME/modelo/sdxl_test/venv/bin/activate"
 
 mkdir -p "$MODEL_DIR" "$OUTPUT_DIR"
 
-# === DESCARGA DEL MODELO SI NO EXISTE ===
+# === DESCARGA DEL MODELO SI NO EXISTE (CON VERIFICACIÓN SHA256) ===
+MODEL_URL="https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/$MODEL_FILE"
+MODEL_SHA256="REPLACE_WITH_ACTUAL_SHA256_HASH"  # <--- poner hash real del modelo
+
+verify_sha256() {
+  local file="$1" expected="$2"
+  local actual
+  if command -v sha256sum >/dev/null 2>&1; then
+    actual=$(sha256sum "$file" | awk '{print $1}')
+  elif command -v shasum >/dev/null 2>&1; then
+    actual=$(shasum -a 256 "$file" | awk '{print $1}')
+  else
+    echo "⚠️ No se encontró herramienta SHA256, omitiendo verificación" >&2
+    return 0
+  fi
+  if [ "$actual" != "$expected" ]; then
+    echo "❌ SHA256 no coincide para $file" >&2
+    echo "   Esperado: $expected" >&2
+    echo "   Obtenido: $actual" >&2
+    rm -f "$file"
+    return 1
+  fi
+  echo "✅ SHA256 verificado: $file"
+  return 0
+}
+
 if [ ! -f "$MODEL_PATH" ]; then
   echo "⚡ Modelo no encontrado, descargando $MODEL_FILE..."
-  MODEL_URL="https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/$MODEL_FILE"  # <--- URL real
   curl -L -o "$MODEL_PATH" "$MODEL_URL" || { echo "❌ Error descargando modelo."; exit 1; }
-  echo "✅ Modelo descargado en $MODEL_PATH"
+  verify_sha256 "$MODEL_PATH" "$MODEL_SHA256" || { echo "❌ Verificación de integridad fallida."; exit 1; }
+  echo "✅ Modelo descargado y verificado en $MODEL_PATH"
 fi
 
 # === ACTIVAR ENTORNO VIRTUAL ===

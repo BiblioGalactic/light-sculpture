@@ -24,11 +24,17 @@ check_dependencies() {
         elif [[ "$OSTYPE" == "linux-gnu"* ]]; then
             # Linux
             if command -v apt-get &>/dev/null; then
-                sudo apt-get update && sudo apt-get install -y ffmpeg
+                echo "⚠️ ffmpeg not found. Install it:" >&2
+                echo "  sudo apt-get install -y ffmpeg" >&2
+                exit 1
             elif command -v yum &>/dev/null; then
-                sudo yum install -y ffmpeg
+                echo "⚠️ ffmpeg not found. Install it:" >&2
+                echo "  sudo yum install -y ffmpeg" >&2
+                exit 1
             elif command -v dnf &>/dev/null; then
-                sudo dnf install -y ffmpeg
+                echo "⚠️ ffmpeg not found. Install it:" >&2
+                echo "  sudo yum install -y ffmpeg" >&2
+                exit 1
             else
                 echo "✖ ERROR: Please install ffmpeg manually"
                 exit 1
