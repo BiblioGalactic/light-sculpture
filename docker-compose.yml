@@ -1,0 +1,54 @@
+# ═══════════════════════════════════════════════════════════
+# GLADIA — Docker Compose
+# ═══════════════════════════════════════════════════════════
+# Perfiles para diferentes casos de uso:
+#
+#   docker compose run --rm gladia tonegeneration.sh 440 5
+#   docker compose run --rm gladia musicanalisys.sh /output/song.mp3
+#   docker compose up gladia-server  (futuro: API REST)
+#
+# ═══════════════════════════════════════════════════════════
+
+services:
+  # ── CLI Tool (default) ──
+  gladia:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: gladia:latest
+    volumes:
+      - "${OUTPUT_DIR:-$HOME/light-sculpture}:/output"
+      - "${MODELO_DIR:-$HOME/modelo}:/modelo:ro"
+    environment:
+      - OUTPUT_DIR=/output
+      - MODELO_DIR=/modelo
+    working_dir: /output
+
+  # ── Batch processing ──
+  gladia-batch:
+    extends: gladia
+    volumes:
+      - "${INPUT_DIR:-.}:/input:ro"
+      - "${OUTPUT_DIR:-$HOME/light-sculpture}:/output"
+
+  # ── Interactive shell ──
+  gladia-shell:
+    extends: gladia
+    stdin_open: true
+    tty: true
+    entrypoint: ["/bin/bash"]
+
+  # ── GPU support (NVIDIA) ──
+  gladia-gpu:
+    extends: gladia
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - OUTPUT_DIR=/output
+      - MODELO_DIR=/modelo
