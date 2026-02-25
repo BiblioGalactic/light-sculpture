@@ -69,7 +69,7 @@ list_tools() {
     echo "    video_translator.sh        Translate video audio/subtitles"
     echo ""
     echo "  ── Image ──"
-    echo "    clasificationpic.sh        ML-based image categorization"
+    echo "    classificationpic.sh       ML-based image categorization"
     echo "    best_image.sh              Find best frames from video"
     echo ""
     echo "  ── Speech ──"
@@ -94,6 +94,10 @@ case "${1:-}" in
     bash|sh)
         shift
         exec bash "$@"
+        ;;
+    classificationpic.sh)
+        shift
+        exec bash "$GLADIA_DIR/clasificationpic.sh" "$@"
         ;;
     *.sh)
         TOOL="$1"
