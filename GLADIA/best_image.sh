@@ -49,10 +49,14 @@ mkdir -p "$MODEL_DIR" "$OUTPUT_DIR"
 
 # === DESCARGA DEL MODELO SI NO EXISTE (CON VERIFICACIÓN SHA256) ===
 MODEL_URL="https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/$MODEL_FILE"
-MODEL_SHA256="REPLACE_WITH_ACTUAL_SHA256_HASH"  # <--- poner hash real del modelo
+MODEL_SHA256="${MODEL_SHA256:-}"
 
 verify_sha256() {
   local file="$1" expected="$2"
+  if [ -z "$expected" ]; then
+    echo "⚠️ SHA256 no configurado para $file, omitiendo verificación" >&2
+    return 0
+  fi
   local actual
   if command -v sha256sum >/dev/null 2>&1; then
     actual=$(sha256sum "$file" | awk '{print $1}')

@@ -34,6 +34,9 @@ id_ed25519
 ## Local runtime/cache
 .expuesto/
 data/
+__pycache__/
+*.py[cod]
+.pytest_cache/
 *.db
 *.sqlite
 *.sqlite3

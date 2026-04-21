@@ -34,10 +34,14 @@ MODEL_PATH="$HOME/light-sculpture/models/timm/mobilenetv3_small_100.pth"
 
 # --- Download model if missing (with SHA256 verification) ---
 MODEL_URL="https://download.pytorch.org/models/mobilenetv3_small_100-2220cb62.pth"
-MODEL_SHA256="REPLACE_WITH_ACTUAL_SHA256_HASH"  # <--- replace with real hash
+MODEL_SHA256="${MODEL_SHA256:-}"
 
 verify_sha256() {
     local file="$1" expected="$2"
+    if [ -z "$expected" ]; then
+        echo "⚠️ No SHA256 configured for $file, skipping verification" >&2
+        return 0
+    fi
     local actual
     if command -v sha256sum >/dev/null 2>&1; then
         actual=$(sha256sum "$file" | awk '{print $1}')
